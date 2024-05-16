@@ -3,8 +3,12 @@ let resultDisplayed = false;
 
 function appendToDisplay(input) {
     if (resultDisplayed) {
-        clearDisplay();
-        resultDisplayed = false;
+        if (isOperator(input)) {
+            resultDisplayed = false;
+        } else {
+            clearDisplay();
+            resultDisplayed = false;
+        }
     }
     if (display.value === 'Error') {
         clearDisplay();
@@ -22,9 +26,17 @@ function erase() {
 
 function calculate() {
     try {
-        display.value = eval(display.value);
+        let result = eval(display.value);
+        if (!Number.isInteger(result)) {
+            result = parseFloat(result.toFixed(6));
+        }
+        display.value = result;
         resultDisplayed = true;
     } catch (error) {
         display.value = 'Error';
     }
+}
+
+function isOperator(input) {
+    return ['+', '-', '*', '/', '%'].includes(input);
 }
