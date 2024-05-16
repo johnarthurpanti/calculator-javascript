@@ -6,6 +6,9 @@ function appendToDisplay(input) {
         clearDisplay();
         resultDisplayed = false;
     }
+    if (display.value === 'Error') {
+        clearDisplay();
+    }
     display.value += input;
 }
 
