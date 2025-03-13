@@ -13,7 +13,11 @@ function appendToDisplay(input) {
     if (display.value === 'Error') {
         clearDisplay();
     }
-    display.value += input;
+    if (input === '*') {
+        display.value += '×';
+    } else {
+        display.value += input;
+    }
 }
 
 function clearDisplay() {
@@ -26,7 +30,8 @@ function erase() {
 
 function calculate() {
     try {
-        let result = eval(display.value);
+        let expression = display.value.replace(/×/g, '*');
+        let result = eval(expression);
         if (!Number.isInteger(result)) {
             result = parseFloat(result.toFixed(6));
         }
