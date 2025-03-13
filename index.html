@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no orientation=portrait">
     <title>Calculator</title>
+    <link rel="icon" type="image/x-icon" href="calculator.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,7 +27,8 @@
             <button onclick="appendToDisplay('2')">2</button>
             <button onclick="appendToDisplay('3')">3</button>
             <button onclick="appendToDisplay('*')" class="orange-btn">x</button>
-            <button onclick="appendToDisplay('0')" class="double">0</button>
+            <button class="empty"></button>
+            <button onclick="appendToDisplay('0')">0</button>
             <button onclick="appendToDisplay('.')">.</button>
             <button onclick="calculate()" class="orange-btn">=</button>
         </div>
