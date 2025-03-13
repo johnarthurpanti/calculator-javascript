@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body{
     margin: 0;
     display: flex;
@@ -45,8 +50,10 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
-button.double {
-    grid-column: span 2; /* Make the button span two columns */
+.empty {
+    background: transparent;
+    border: none;
+    pointer-events: none;
 }
 button:hover{
     background-color: hsl(0, 0%, 40%);
@@ -79,22 +86,18 @@ button:active{
 @media (max-width: 600px) {
     #calculator {
         width: 100%;
-        max-width: 300px;
+        max-width: 375px;
     }
 
     #display {
-        font-size: 3rem;
-    }
-
-    #keys {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        padding: 25px;
+        font-size: 2.5rem;
+        padding: 40px;
     }
 
     button {
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
+        width: 70px;
+        height: 80px;
+        font-size: 1.5rem;
+        border-radius: 40px;
     }
 }
